@@ -1,0 +1,231 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #0e0e0e;
+    --surface: #161616;
+    --border: #2a2a2a;
+    --text: #e8e2d9;
+    --muted: #666;
+    --accent: #c8a97e;
+    --accent-dim: rgba(200, 169, 126, 0.12);
+    --green: #4ade80;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    overflow-x: hidden;
+}
+
+.card {
+    position: relative;
+    z-index: 1;
+    max-width: 480px;
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 48px 44px;
+    animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.avatar-wrap {
+    position: relative;
+    width: 88px;
+    height: 88px;
+    margin-bottom: 28px;
+    animation: rise 0.7s 0.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.avatar {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border);
+    display: block;
+}
+
+.avatar-placeholder {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: var(--accent);
+}
+
+.status-dot {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 14px;
+    height: 14px;
+    background: var(--green);
+    border-radius: 50%;
+    border: 2px solid var(--surface);
+    animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
+    }
+}
+
+.name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.4rem;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    animation: rise 0.7s 0.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.role {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 8px;
+    animation: rise 0.7s 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.bio {
+    margin-top: 16px;
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.65;
+    animation: rise 0.7s 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.divider {
+    height: 1px;
+    background: var(--border);
+    margin: 28px 0;
+    animation: rise 0.7s 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    animation: rise 0.7s 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.76rem;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border: 1px solid rgba(200, 169, 126, 0.2);
+    border-radius: 6px;
+    padding: 4px 10px;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.tag:hover {
+    background: rgba(200, 169, 126, 0.2);
+    border-color: rgba(200, 169, 126, 0.4);
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 28px;
+    animation: rise 0.7s 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 13px 20px;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.15s, opacity 0.15s, background 0.2s;
+    border: none;
+
+    &:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #0e0e0e;
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.footer {
+    margin-top: 28px;
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: darkgrey;
+    letter-spacing: 0.08em;
+    animation: rise 0.7s 0.44s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
