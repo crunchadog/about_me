@@ -152,6 +152,7 @@ body {
 .stack {
     display: flex;
     flex-wrap: wrap;
+    cursor: pointer;
     gap: 8px;
     animation: rise 0.7s 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
